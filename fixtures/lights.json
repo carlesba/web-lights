@@ -1,0 +1,2490 @@
+{
+	"lights": {
+		"1": {
+			"state": {
+				"on": false,
+				"bri": 254,
+				"hue": 42462,
+				"sat": 77,
+				"effect": "none",
+				"xy": [
+					0.3126,
+					0.3197
+				],
+				"ct": 153,
+				"alert": "none",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2017-11-29T22:42:48"
+			},
+			"type": "Extended color light",
+			"name": "Hue go 1",
+			"modelid": "LLC020",
+			"manufacturername": "Philips",
+			"productname": "Hue go",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 40,
+					"maxlumen": 300,
+					"colorgamuttype": "C",
+					"colorgamut": [
+						[
+							0.6915,
+							0.3083
+						],
+						[
+							0.17,
+							0.7
+						],
+						[
+							0.1532,
+							0.0475
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "huego",
+				"function": "decorative",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:17:88:01:01:19:2c:0f-0b",
+			"swversion": "5.105.0.21169"
+		},
+		"2": {
+			"state": {
+				"on": false,
+				"bri": 254,
+				"hue": 42210,
+				"sat": 80,
+				"effect": "none",
+				"xy": [
+					0.31,
+					0.3199
+				],
+				"ct": 153,
+				"alert": "none",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2017-11-29T22:42:51"
+			},
+			"type": "Extended color light",
+			"name": "Hue go 2",
+			"modelid": "LLC020",
+			"manufacturername": "Philips",
+			"productname": "Hue go",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 40,
+					"maxlumen": 300,
+					"colorgamuttype": "C",
+					"colorgamut": [
+						[
+							0.6915,
+							0.3083
+						],
+						[
+							0.17,
+							0.7
+						],
+						[
+							0.1532,
+							0.0475
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "huego",
+				"function": "decorative",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:17:88:01:02:14:a9:c7-0b",
+			"swversion": "5.105.0.21169"
+		},
+		"3": {
+			"state": {
+				"on": false,
+				"bri": 183,
+				"hue": 42174,
+				"sat": 76,
+				"effect": "none",
+				"xy": [
+					0.3136,
+					0.323
+				],
+				"ct": 153,
+				"alert": "none",
+				"colormode": "xy",
+				"mode": "homeautomation",
+				"reachable": true
+			},
+			"swupdate": {
+				"state": "noupdates",
+				"lastinstall": "2017-11-29T22:42:53"
+			},
+			"type": "Extended color light",
+			"name": "Hue lightstrip plus 1",
+			"modelid": "LST002",
+			"manufacturername": "Philips",
+			"productname": "Hue lightstrip plus",
+			"capabilities": {
+				"certified": true,
+				"control": {
+					"mindimlevel": 40,
+					"maxlumen": 1600,
+					"colorgamuttype": "C",
+					"colorgamut": [
+						[
+							0.6915,
+							0.3083
+						],
+						[
+							0.17,
+							0.7
+						],
+						[
+							0.1532,
+							0.0475
+						]
+					],
+					"ct": {
+						"min": 153,
+						"max": 500
+					}
+				},
+				"streaming": {
+					"renderer": true,
+					"proxy": true
+				}
+			},
+			"config": {
+				"archetype": "huelightstrip",
+				"function": "mixed",
+				"direction": "omnidirectional"
+			},
+			"uniqueid": "00:17:88:01:02:15:60:b2-0b",
+			"swversion": "5.105.0.21169"
+		}
+	},
+	"groups": {
+		"1": {
+			"name": "Lounge",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"type": "Room",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": false,
+			"class": "Living room",
+			"action": {
+				"on": false,
+				"bri": 183,
+				"hue": 42174,
+				"sat": 76,
+				"effect": "none",
+				"xy": [
+					0.3136,
+					0.323
+				],
+				"ct": 153,
+				"alert": "none",
+				"colormode": "xy"
+			}
+		},
+		"2": {
+			"name": "Group for wakeup",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"type": "LightGroup",
+			"state": {
+				"all_on": false,
+				"any_on": false
+			},
+			"recycle": true,
+			"action": {
+				"on": false,
+				"bri": 183,
+				"hue": 42174,
+				"sat": 76,
+				"effect": "none",
+				"xy": [
+					0.3136,
+					0.323
+				],
+				"ct": 153,
+				"alert": "none",
+				"colormode": "xy"
+			}
+		}
+	},
+	"config": {
+		"name": "Philips hue",
+		"zigbeechannel": 11,
+		"bridgeid": "001788FFFE6242BA",
+		"mac": "00:17:88:62:42:ba",
+		"dhcp": true,
+		"ipaddress": "192.168.1.154",
+		"netmask": "255.255.255.0",
+		"gateway": "192.168.1.1",
+		"proxyaddress": "none",
+		"proxyport": 0,
+		"UTC": "2018-07-28T08:55:30",
+		"localtime": "2018-07-28T10:55:30",
+		"timezone": "Europe/Madrid",
+		"modelid": "BSB002",
+		"datastoreversion": "71",
+		"swversion": "1806051111",
+		"apiversion": "1.26.0",
+		"swupdate": {
+			"updatestate": 0,
+			"checkforupdate": false,
+			"devicetypes": {
+				"bridge": false,
+				"lights": [],
+				"sensors": []
+			},
+			"url": "",
+			"text": "",
+			"notify": true
+		},
+		"swupdate2": {
+			"checkforupdate": false,
+			"lastchange": "2018-07-18T04:04:23",
+			"bridge": {
+				"state": "noupdates",
+				"lastinstall": "2018-07-18T04:03:51"
+			},
+			"state": "noupdates",
+			"autoinstall": {
+				"updatetime": "T06:00:00",
+				"on": true
+			}
+		},
+		"linkbutton": false,
+		"portalservices": true,
+		"portalconnection": "connected",
+		"portalstate": {
+			"signedon": true,
+			"incoming": false,
+			"outgoing": true,
+			"communication": "disconnected"
+		},
+		"internetservices": {
+			"internet": "connected",
+			"remoteaccess": "connected",
+			"time": "connected",
+			"swupdate": "connected"
+		},
+		"factorynew": false,
+		"replacesbridgeid": null,
+		"backup": {
+			"status": "idle",
+			"errorcode": 0
+		},
+		"starterkitid": "",
+		"whitelist": {
+			"ix-8RFCUXypVxtMMS6uwXj2dSenyv0Zbi7UUSkGv": {
+				"last use date": "2017-11-23T18:37:44",
+				"create date": "2017-11-23T18:37:44",
+				"name": "hue_ios_app#gamma"
+			},
+			"hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN": {
+				"last use date": "2018-07-27T21:33:45",
+				"create date": "1980-01-01T00:00:28",
+				"name": "hue_ios_app#gamma"
+			},
+			"QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj": {
+				"last use date": "2017-11-25T22:04:03",
+				"create date": "2017-11-23T19:11:58",
+				"name": "huelabs2#WebKit - iOS"
+			},
+			"fNiu9eCe6fx9xdcHqcYNGYpRSEPjH9hVGikgO85o": {
+				"last use date": "2017-11-23T19:49:03",
+				"create date": "2017-11-23T19:40:44",
+				"name": "HueParty#gamma"
+			},
+			"yUCspF8nB0NG6ClymNsqCc8Rt2sYqNNn2aCrk04T": {
+				"last use date": "2017-11-23T20:34:03",
+				"create date": "2017-11-23T19:52:38",
+				"name": "Huedini"
+			},
+			"QvxrL7xgj6IQ5bXPaHl7R8Yoqqzy7pKMXcVAd8Ex": {
+				"last use date": "2017-11-23T20:34:03",
+				"create date": "2017-11-23T19:54:31",
+				"name": "AmbeeApp#51097173"
+			},
+			"An2q40c70AoEz-54z46bU5oeUHlbtidVLgOWE7t9": {
+				"last use date": "2017-11-23T20:19:03",
+				"create date": "2017-11-23T20:04:14",
+				"name": "thebatplayer#Apple TV"
+			},
+			"7iNMSfpaQy2KpuDpy3OHu9aGniphAcA4AMBlREp9": {
+				"last use date": "2017-11-23T20:34:03",
+				"create date": "2017-11-23T20:31:34",
+				"name": "LightShow-Mac"
+			},
+			"sg6qjlAIM4CavExbVs6FlgnEqwyj-cXu9wsTm2yH": {
+				"last use date": "2018-07-16T20:52:55",
+				"create date": "2017-11-23T20:36:09",
+				"name": "LightShow-Mac"
+			},
+			"haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M": {
+				"last use date": "2018-07-01T19:22:44",
+				"create date": "2017-11-23T21:02:41",
+				"name": "iConnectHue#iPhone"
+			},
+			"PtIoOwql12QB3vHggLTpFEWJecDF8GNm00af2M-S": {
+				"last use date": "2018-07-01T00:52:44",
+				"create date": "2017-11-23T21:17:17",
+				"name": "OnSwitch#gamma"
+			},
+			"mZSkl5rstR9xOhqw9V343WURS9qvrDrq1M8FS9l1": {
+				"last use date": "2017-11-26T17:51:14",
+				"create date": "2017-11-26T17:51:14",
+				"name": "my_hue_foo#foo"
+			},
+			"hUbCMZHMcyVybzrWsMmn2FXbOxF2aj372gkYZ6OU": {
+				"last use date": "2017-11-26T18:01:54",
+				"create date": "2017-11-26T18:01:54",
+				"name": "my_hue_foo#foo"
+			},
+			"h5Kag4FK2grZPEyK34uX8G8CFayCWLhREh04HtoH": {
+				"last use date": "2017-11-26T18:04:03",
+				"create date": "2017-11-26T18:02:41",
+				"name": "my_hue_foo#foo"
+			},
+			"PpW8c6Mh2L6MgYjrG-6sP6WNFgFfVCUXof23auW1": {
+				"last use date": "2017-11-26T18:19:03",
+				"create date": "2017-11-26T18:18:33",
+				"name": "my_hue_foo#foo"
+			},
+			"oVjgbD-18wj19GiEf-Nv1RM7JgVKafejujfUcxPd": {
+				"last use date": "2017-11-26T18:34:03",
+				"create date": "2017-11-26T18:21:41",
+				"name": "my_hue_foo#foo"
+			},
+			"7LdMrSV3r2Lnp0Lt6uFoVLTZBG30T6ZvFYEblu0x": {
+				"last use date": "2017-11-26T18:34:03",
+				"create date": "2017-11-26T18:22:45",
+				"name": "my_hue_foo#foo"
+			},
+			"yr8EvXN8ECyG9zuNqbM7ybqlxxi7KnFxCkc9JlJe": {
+				"last use date": "2017-11-26T18:34:03",
+				"create date": "2017-11-26T18:24:14",
+				"name": "my_hue_foo#foo"
+			},
+			"GOWiqgkv49tx6TqVeVOpO9MMRW1h8mvaRVwQYzdg": {
+				"last use date": "2017-11-26T18:34:03",
+				"create date": "2017-11-26T18:25:58",
+				"name": "my_hue_foo#foo"
+			},
+			"fWBWZ-1tz2DBHR5Pu2B7GQSqOA9JmYwLLYqDumVn": {
+				"last use date": "2017-11-26T18:34:03",
+				"create date": "2017-11-26T18:28:09",
+				"name": "my_hue_foo#foo"
+			},
+			"fbkllVHkCcMecutl2iOcsekQVBl2pVGnWiUuhGVf": {
+				"last use date": "2017-11-26T18:34:03",
+				"create date": "2017-11-26T18:29:02",
+				"name": "my_hue_foo#foo"
+			},
+			"vAhJ2kL4Bk3Rvr3LquzvJAJgR84N0ryQGlJJNXV0": {
+				"last use date": "2017-12-06T20:51:16",
+				"create date": "2017-12-06T18:47:17",
+				"name": "my_hue_foo#foo"
+			},
+			"iqU9G32ghIXaAan1ZhoYr1tvWIBVllp0GtXr-zS-": {
+				"last use date": "2018-07-19T00:18:46",
+				"create date": "2018-03-22T00:07:12",
+				"name": "sleepcycle"
+			},
+			"gkHRCGybGB7uJRhRh-7bWA-tCJG4oNjvrDFFf6hO": {
+				"last use date": "2018-06-24T13:52:44",
+				"create date": "2018-06-24T13:45:33",
+				"name": "iftttv2"
+			},
+			"RP7FzQNQ1VDjmyhGoOWmIihAxFcueKHFFdGSmq2q": {
+				"last use date": "2018-06-29T19:22:44",
+				"create date": "2018-06-29T19:20:13",
+				"name": "Aurora#gamma"
+			},
+			"Dx7y1i5VhfOS4N8Lh4sq3frYbr0Y-tc2fwY0OFOV": {
+				"last use date": "2018-07-28T08:55:30",
+				"create date": "2018-07-28T08:53:54",
+				"name": "uno"
+			}
+		}
+	},
+	"schedules": {
+		"1": {
+			"name": "423243lkjnjdsa_G1_1",
+			"description": "XFDani[1][1]423243lkjnjdsa",
+			"command": {
+				"address": "/api/haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M/sensors/9/state",
+				"body": {
+					"status": 2
+				},
+				"method": "PUT"
+			},
+			"time": "PT00:00:05",
+			"created": "2018-06-29T19:16:55",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2018-06-29T19:19:41",
+			"recycle": false
+		},
+		"2": {
+			"name": "23409adskj43_G1_1",
+			"description": "XFDani[1][1]23409adskj43",
+			"command": {
+				"address": "/api/haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M/sensors/9/state",
+				"body": {
+					"status": 3
+				},
+				"method": "PUT"
+			},
+			"time": "PT00:00:05",
+			"created": "2018-06-29T19:16:55",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2018-06-29T19:19:31",
+			"recycle": false
+		},
+		"3": {
+			"name": "4329dsak9342_G1_1",
+			"description": "XFDani[1][1]4329dsak9342",
+			"command": {
+				"address": "/api/haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M/sensors/9/state",
+				"body": {
+					"status": 1
+				},
+				"method": "PUT"
+			},
+			"time": "PT00:00:05",
+			"created": "2018-06-29T19:16:56",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2018-06-29T19:19:36",
+			"recycle": false
+		},
+		"4": {
+			"name": "Wake up 1",
+			"description": "L_04_xhYFt_start wake up",
+			"command": {
+				"address": "/api/hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfw/sensors/10/state",
+				"body": {
+					"flag": true
+				},
+				"method": "PUT"
+			},
+			"localtime": "W120/T07:45:00",
+			"time": "W120/T05:45:00",
+			"created": "2018-06-03T19:33:04",
+			"status": "disabled",
+			"recycle": true
+		},
+		"5": {
+			"name": "L_04_xhYFt",
+			"description": "L_04_xhYFt_trigger end scene",
+			"command": {
+				"address": "/api/hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfw/groups/0/action",
+				"body": {
+					"scene": "EiIc0nZsOYItO7y"
+				},
+				"method": "PUT"
+			},
+			"localtime": "PT00:01:00",
+			"time": "PT00:01:00",
+			"created": "2018-06-03T19:33:04",
+			"status": "disabled",
+			"autodelete": false,
+			"starttime": "2018-06-25T05:45:00",
+			"recycle": true
+		},
+		"6": {
+			"name": "Routine 1",
+			"description": "MyRoutine",
+			"command": {
+				"address": "/api/hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfw/sensors/11/state",
+				"body": {
+					"status": 1
+				},
+				"method": "PUT"
+			},
+			"localtime": "W120/T11:00:00",
+			"time": "W120/T09:00:00",
+			"created": "2018-06-03T19:34:17",
+			"status": "disabled",
+			"recycle": true
+		}
+	},
+	"scenes": {
+		"vJVimu3RQALhqmH": {
+			"name": "Relax",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "L0XOc_r01_d01"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:35",
+			"version": 2
+		},
+		"McXaqMG3WbkWTMY": {
+			"name": "Read",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "jVzK8_r01_d02"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:35",
+			"version": 2
+		},
+		"nOYxZZrzRcBTHSj": {
+			"name": "Concentrate",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "t12uB_r01_d03"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"psfebqM0xuzqYN4": {
+			"name": "Energize",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "i13kQ_r01_d04"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"GhkirjhcjX0Yvyy": {
+			"name": "Bright",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "2tbBU_r01_d05"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"otfzbiF-aKxEZcb": {
+			"name": "Dimmed",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "TvH3W_r01_d06"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"2uZ8ct1JExwmeTf": {
+			"name": "Nightlight",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "vqhS4_r01_d07"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"w3DWPJxEMuplodD": {
+			"name": "Savanna sunset",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "tb7Rn_r01_d15"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"Kgkpp97leBiZ9c3": {
+			"name": "Tropical twilight",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "UmXLo_r01_d16"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"PkRiH5jHRo-BdcL": {
+			"name": "Arctic aurora",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "b9iKI_r01_d17"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"-QEFmo-n4DmBYue": {
+			"name": "Spring blossom",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "5xr2I_r01_d18"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T16:21:36",
+			"version": 2
+		},
+		"fIr27kQVXvsWSYo": {
+			"name": "Scene scene0 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:12:34",
+			"version": 2
+		},
+		"8MIAPdlmvfnUVdi": {
+			"name": "Scene scene1 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:12:35",
+			"version": 2
+		},
+		"WzsAGSD1TQA-QAH": {
+			"name": "Scene scene2 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:12:35",
+			"version": 2
+		},
+		"-Ch6mS89dF5DZ9f": {
+			"name": "Scene scene3 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:12:35",
+			"version": 2
+		},
+		"NGyH8KZi8LJ4r0D": {
+			"name": "Scene scene4 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:12:35",
+			"version": 2
+		},
+		"hsPQrMU5IXxihfb": {
+			"name": "Scene scene5 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:12:35",
+			"version": 2
+		},
+		"Ivn0UhwntXJx66f": {
+			"name": "Scene scene0 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:06",
+			"version": 2
+		},
+		"Kh-kAC1efbLTn5S": {
+			"name": "Scene scene1 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:07",
+			"version": 2
+		},
+		"2H68PkgA2h24FqL": {
+			"name": "Scene scene2 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:07",
+			"version": 2
+		},
+		"StqJnvnmfQW99qg": {
+			"name": "Scene scene3 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:07",
+			"version": 2
+		},
+		"GrVlmuzPHKCCRhO": {
+			"name": "Scene scene4 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:07",
+			"version": 2
+		},
+		"ploPmgRZ21L97SX": {
+			"name": "Scene scene5 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:07",
+			"version": 2
+		},
+		"vBrNBNyRZxnqxyV": {
+			"name": "Scene scene0 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:24",
+			"version": 2
+		},
+		"5UrHHSqW-27EVss": {
+			"name": "Scene scene1 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:24",
+			"version": 2
+		},
+		"vIHtpTMYWaNe0SV": {
+			"name": "Scene scene2 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:24",
+			"version": 2
+		},
+		"R9EOas4HSSdwp4G": {
+			"name": "Scene scene3 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:24",
+			"version": 2
+		},
+		"miRgU2HkKzNiygZ": {
+			"name": "Scene scene4 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:24",
+			"version": 2
+		},
+		"Lfl8x2XujRd2EsP": {
+			"name": "Scene scene5 huelabs/living-sc",
+			"lights": [
+				"1"
+			],
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": true,
+			"locked": false,
+			"appdata": {},
+			"picture": "",
+			"lastupdated": "2017-11-23T19:13:24",
+			"version": 2
+		},
+		"IzC3DIm6AQBjvzq": {
+			"name": "Under water-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "dsjakzu3:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T20:36:57",
+			"version": 2
+		},
+		"5hS9cS1H7rzcRvL": {
+			"name": "Under water-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "43sadoi2:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T20:36:58",
+			"version": 2
+		},
+		"Ge1wCCETTWP41Ii": {
+			"name": "Under water-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "4390ksdf:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T20:36:58",
+			"version": 2
+		},
+		"34SRunE7UFkFJoH": {
+			"name": "sddjk432-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sddjk432:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:06:30",
+			"version": 2
+		},
+		"QWHWj3OkUz1MB4A": {
+			"name": "sfdkljj54wfd-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sfdkljj5:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:06:30",
+			"version": 2
+		},
+		"zXHWifcdn4a0m4l": {
+			"name": "sdflk5j24-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sdflk5j2:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:06:30",
+			"version": 2
+		},
+		"oZTZ7kZ8CRvfRoL": {
+			"name": "fghkjlh4675-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "fghkjlh4:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:06:30",
+			"version": 2
+		},
+		"qx48sbGuaTsFdni": {
+			"name": "Fruits-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "234daee5:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:07:20",
+			"version": 2
+		},
+		"xZ9WDLPJ8tASdcH": {
+			"name": "Fruits-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "324asd33:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:07:20",
+			"version": 2
+		},
+		"7eurRl9H9i328FZ": {
+			"name": "Fruits-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "dsajkh23:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:07:20",
+			"version": 2
+		},
+		"zXfIpF96qydvGVJ": {
+			"name": "Fruits-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "dscdjh32:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:07:21",
+			"version": 2
+		},
+		"A5hcgYbiVdsg7NA": {
+			"name": "24398dsahr489732-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "24398dsa:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T20:37:13",
+			"version": 2
+		},
+		"-pR9ietdJyj7696": {
+			"name": "sadlk3485dsakj43-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sadlk348:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T20:37:13",
+			"version": 2
+		},
+		"n3dROcXumAOM-NW": {
+			"name": "2340d89ajd438-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "2340d89a:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T20:37:14",
+			"version": 2
+		},
+		"imnjgsgGNfYgWVL": {
+			"name": "Tropical sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "423243lk:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T17:33:29",
+			"version": 2
+		},
+		"auQm4dxYW64v4qu": {
+			"name": "Tropical sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "23409ads:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T17:33:29",
+			"version": 2
+		},
+		"7b7d-XwSP4IPuPD": {
+			"name": "Tropical sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "4329dsak:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-24T17:33:29",
+			"version": 2
+		},
+		"ywY5fg5paJ5w3BX": {
+			"name": "Purple night-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sdf423hj:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:13:33",
+			"version": 2
+		},
+		"ptcseanoOor41gw": {
+			"name": "Purple night-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sdf423sa:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:13:33",
+			"version": 2
+		},
+		"K3XXJQwUrq7yWS6": {
+			"name": "Purple night-Animation",
+			"lights": [
+				"1",
+				"2"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sdf432sd:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-23T21:13:34",
+			"version": 2
+		},
+		"9QsaT4EN5FeMIoi": {
+			"name": "Sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "lwd2389d:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-27T21:27:52",
+			"version": 2
+		},
+		"K5Y9yeJIbBe9P7g": {
+			"name": "Sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "3248ijd3:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-27T21:27:52",
+			"version": 2
+		},
+		"-iO82PfVfqLuWuA": {
+			"name": "Sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "jdkh389h:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-27T21:27:52",
+			"version": 2
+		},
+		"T7IhpHL0Gn8juXA": {
+			"name": "Passing clouds 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "sadadkfs:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-25T12:01:18",
+			"version": 2
+		},
+		"rykkiCXQ1xRWgtF": {
+			"name": "Passing clouds 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "sdfjdhsf:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-25T12:01:19",
+			"version": 2
+		},
+		"VcGS0qE-XLOFmv7": {
+			"name": "Passing clouds 2-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "sdajk4h3:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-25T12:01:19",
+			"version": 2
+		},
+		"ar9VBgf9FA5il5V": {
+			"name": "Passing clouds 2-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "sdfjhg43:CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2017-11-25T12:01:19",
+			"version": 2
+		},
+		"WSHXEOZiC2HNlLu": {
+			"name": "Tropical sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "423243lk_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T17:58:39",
+			"version": 2
+		},
+		"niI33Xqxav0Wi0s": {
+			"name": "Tropical sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "23409ads_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T17:58:39",
+			"version": 2
+		},
+		"wOXEcNpN7u2nbWO": {
+			"name": "Tropical sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "4329dsak_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T17:58:40",
+			"version": 2
+		},
+		"TV0SWYPnPnmfgC2": {
+			"name": "Sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "lwd2389d_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T18:20:12",
+			"version": 2
+		},
+		"dKSNRPtPvTzEaXL": {
+			"name": "Sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "3248ijd3_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T18:20:12",
+			"version": 2
+		},
+		"bI0774faslp8SOz": {
+			"name": "Sunset-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "jdkh389h_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T18:20:13",
+			"version": 2
+		},
+		"mkUxYiWlIKsEw5p": {
+			"name": "24398dsahr489732-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "24398dsa_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T18:20:33",
+			"version": 2
+		},
+		"SI1JMhIimmemacI": {
+			"name": "sadlk3485dsakj43-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sadlk348_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T18:20:33",
+			"version": 2
+		},
+		"88-TxLgFPWrY4-W": {
+			"name": "2340d89ajd438-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "2340d89a_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-03-31T18:20:34",
+			"version": 2
+		},
+		"lUJa9bibg2PJNBs": {
+			"name": "Galaxy",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "YUSlq_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-03T19:29:51",
+			"version": 2
+		},
+		"e7H483WRMyVrU7P": {
+			"name": "Wake Up init",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "3o3os_r00"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-03T19:33:04",
+			"version": 2
+		},
+		"EiIc0nZsOYItO7y": {
+			"name": "Wake Up end",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "3Jpvo_r00"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-03T19:33:04",
+			"version": 2
+		},
+		"LtD7RGx-62BwT6B": {
+			"name": "Galaxy",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": true,
+			"locked": true,
+			"appdata": {
+				"version": 1,
+				"data": "YUSlq_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-03T19:34:17",
+			"version": 2
+		},
+		"m3DUk5HmwTAY1NS": {
+			"name": "Fireplace 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "dfglkjhe_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:54",
+			"version": 2
+		},
+		"DvWq8rS1qkq1pvj": {
+			"name": "Fireplace 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sdkjlh56_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:54",
+			"version": 2
+		},
+		"4BvQKOrPWw-itQB": {
+			"name": "Fireplace 2-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "dfjkh5e6_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:54",
+			"version": 2
+		},
+		"4q5KqsyEUBmpry-": {
+			"name": "Fireplace 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "dsjkhe65_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:54",
+			"version": 2
+		},
+		"Lm3wvKAPD0DTIdd": {
+			"name": "Fireplace 2-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "sdfkjljh_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:55",
+			"version": 2
+		},
+		"tEhOaXYNMebaEeG": {
+			"name": "Fireplace 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "dgjfhe56_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:55",
+			"version": 2
+		},
+		"4cEeRHw4-JASV8L": {
+			"name": "Fireplace 1-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 5,
+				"data": "dskljh45_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:38:55",
+			"version": 2
+		},
+		"oOj8J8wRqUdQHh1": {
+			"name": "Under water-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "dsjakzu3_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:39:27",
+			"version": 2
+		},
+		"-ytxFEbFrvXDelr": {
+			"name": "Under water-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "43sadoi2_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:39:27",
+			"version": 2
+		},
+		"bYT2n1WpZh0HqnP": {
+			"name": "Under water-Animation",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"recycle": true,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "4390ksdf_CA01000"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:39:28",
+			"version": 2
+		},
+		"Zo7y3cKBksGoWhj": {
+			"name": "Blood Moon",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "ND5YZ_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-08T21:44:53",
+			"version": 2
+		},
+		"fbLutYWrGAUuDoG": {
+			"name": "Emerald Isle",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "ywkjA_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-22T19:05:25",
+			"version": 2
+		},
+		"W4GVxpz4VTpcrL2": {
+			"name": "Ruby Glow",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "HDLWh_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-12T19:26:25",
+			"version": 2
+		},
+		"rgXX9jpQJRbQU4I": {
+			"name": "Lake Mist",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "cwT6F_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-08T19:02:22",
+			"version": 2
+		},
+		"O5PolKoL8GHiTV3": {
+			"name": "Mountain Breeze",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "5KqUk_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-06-29T19:25:48",
+			"version": 2
+		},
+		"Rlm9mgVneNE9Dy7": {
+			"name": "Nebula",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "vBYtO_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-13T20:01:26",
+			"version": 2
+		},
+		"WZ4B9DV5xu4lMlX": {
+			"name": "Lake Placid",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "odNlS_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-09T19:59:48",
+			"version": 2
+		},
+		"45ZSFrzc7AmZdPV": {
+			"name": "Honolulu",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "2mYg6_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-05T20:39:37",
+			"version": 2
+		},
+		"-IC9KVuG3-oa9Qh": {
+			"name": "Cinema ",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "XfQqJ_r01_d99"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-06T21:57:33",
+			"version": 2
+		},
+		"9RUsfkJ-cDRoTvq": {
+			"name": "Osaka",
+			"lights": [
+				"1",
+				"2",
+				"3"
+			],
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"locked": false,
+			"appdata": {
+				"version": 1,
+				"data": "z2TiQ_r01"
+			},
+			"picture": "",
+			"lastupdated": "2018-07-14T21:49:12",
+			"version": 2
+		}
+	},
+	"rules": {
+		"1": {
+			"name": "XFDani[1][1]423243lkjnjdsa",
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"created": "2018-06-29T19:16:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/8/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/9/state/status",
+					"operator": "eq",
+					"value": "2"
+				},
+				{
+					"address": "/sensors/9/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/2",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				},
+				{
+					"address": "/groups/1/action",
+					"method": "PUT",
+					"body": {
+						"scene": "niI33Xqxav0Wi0s"
+					}
+				}
+			]
+		},
+		"2": {
+			"name": "XFDani[1][1]23409adskj43",
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"created": "2018-06-29T19:16:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/8/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/9/state/status",
+					"operator": "eq",
+					"value": "3"
+				},
+				{
+					"address": "/sensors/9/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/3",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				},
+				{
+					"address": "/groups/1/action",
+					"method": "PUT",
+					"body": {
+						"scene": "wOXEcNpN7u2nbWO"
+					}
+				}
+			]
+		},
+		"3": {
+			"name": "XFDani[1][1]4329dsak9342",
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"created": "2018-06-29T19:16:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/8/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/9/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/9/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/1",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				},
+				{
+					"address": "/groups/1/action",
+					"method": "PUT",
+					"body": {
+						"scene": "WSHXEOZiC2HNlLu"
+					}
+				}
+			]
+		},
+		"4": {
+			"name": "XFDani[1][1]rl:start",
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"created": "2018-06-29T19:16:56",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/sensors/8/state/status",
+					"operator": "eq",
+					"value": "1"
+				},
+				{
+					"address": "/sensors/8/state/lastupdated",
+					"operator": "dx"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/1",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				},
+				{
+					"address": "/groups/1/action",
+					"method": "PUT",
+					"body": {
+						"scene": "WSHXEOZiC2HNlLu",
+						"bri": 203,
+						"on": true
+					}
+				}
+			]
+		},
+		"5": {
+			"name": "XFDani[1]rl:stop",
+			"owner": "haBl5uH-jTjiGEBguY3HTj1FcW9XOyDTNUOLCf0M",
+			"created": "2018-06-29T19:16:56",
+			"lasttriggered": "2018-07-28T04:31:33",
+			"timestriggered": 9,
+			"status": "enabled",
+			"recycle": false,
+			"conditions": [
+				{
+					"address": "/groups/1/state/any_on",
+					"operator": "eq",
+					"value": "false"
+				}
+			],
+			"actions": [
+				{
+					"address": "/sensors/8/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		},
+		"6": {
+			"name": "L_04_xhYFt_Start",
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"created": "2018-06-03T19:33:04",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/10/state/flag",
+					"operator": "eq",
+					"value": "true"
+				}
+			],
+			"actions": [
+				{
+					"address": "/schedules/5",
+					"method": "PUT",
+					"body": {
+						"status": "enabled"
+					}
+				},
+				{
+					"address": "/groups/1/action",
+					"method": "PUT",
+					"body": {
+						"scene": "e7H483WRMyVrU7P"
+					}
+				}
+			]
+		},
+		"7": {
+			"name": "Wake up 4.end",
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"created": "2018-06-03T19:33:04",
+			"lasttriggered": "none",
+			"timestriggered": 0,
+			"status": "enabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/10/state/flag",
+					"operator": "eq",
+					"value": "true"
+				},
+				{
+					"address": "/sensors/10/state/flag",
+					"operator": "ddx",
+					"value": "PT01:15:00"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/2/action",
+					"method": "PUT",
+					"body": {
+						"on": false
+					}
+				},
+				{
+					"address": "/sensors/10/state",
+					"method": "PUT",
+					"body": {
+						"flag": false
+					}
+				}
+			]
+		},
+		"8": {
+			"name": "Routine 6.start",
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"created": "2018-06-03T19:34:18",
+			"lasttriggered": "2018-07-25T18:46:00",
+			"timestriggered": 5,
+			"status": "disabled",
+			"recycle": true,
+			"conditions": [
+				{
+					"address": "/sensors/1/state/daylight",
+					"operator": "eq",
+					"value": "false"
+				},
+				{
+					"address": "/sensors/1/state/daylight",
+					"operator": "dx"
+				},
+				{
+					"address": "/sensors/11/state/status",
+					"operator": "eq",
+					"value": "1"
+				}
+			],
+			"actions": [
+				{
+					"address": "/groups/1/action",
+					"method": "PUT",
+					"body": {
+						"scene": "LtD7RGx-62BwT6B"
+					}
+				},
+				{
+					"address": "/sensors/11/state",
+					"method": "PUT",
+					"body": {
+						"status": 0
+					}
+				}
+			]
+		}
+	},
+	"sensors": {
+		"1": {
+			"state": {
+				"daylight": true,
+				"lastupdated": "2018-07-28T05:12:00"
+			},
+			"config": {
+				"on": true,
+				"configured": true,
+				"sunriseoffset": 30,
+				"sunsetoffset": -30
+			},
+			"name": "Daylight",
+			"type": "Daylight",
+			"modelid": "PHDL00",
+			"manufacturername": "Philips",
+			"swversion": "1.0"
+		},
+		"8": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2018-07-28T04:31:33"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "XFDani[1]sn:state",
+			"type": "CLIPGenericStatus",
+			"modelid": "AnimationSensor",
+			"manufacturername": "xfiredesigns",
+			"swversion": "1.0",
+			"uniqueid": "XFDani[1]sn:state",
+			"recycle": false
+		},
+		"9": {
+			"state": {
+				"status": 0,
+				"lastupdated": "none"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "XFDani[1][1]sn:step",
+			"type": "CLIPGenericStatus",
+			"modelid": "AnimationSensor",
+			"manufacturername": "xfiredesigns",
+			"swversion": "1.0",
+			"uniqueid": "XFDani[1][1]sn:step",
+			"recycle": false
+		},
+		"10": {
+			"state": {
+				"flag": false,
+				"lastupdated": "none"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Wake up 1",
+			"type": "CLIPGenericFlag",
+			"modelid": "WAKEUP",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "L_04_xhYFt",
+			"recycle": true
+		},
+		"11": {
+			"state": {
+				"status": 0,
+				"lastupdated": "2018-07-25T18:46:00"
+			},
+			"config": {
+				"on": true,
+				"reachable": true
+			},
+			"name": "Routine 1",
+			"type": "CLIPGenericStatus",
+			"modelid": "PHA_STATE",
+			"manufacturername": "Philips",
+			"swversion": "1.0",
+			"uniqueid": "8eQPn2J6kMYq",
+			"recycle": true
+		}
+	},
+	"resourcelinks": {
+		"11544": {
+			"name": "Routine 6",
+			"description": "Routine 6 behavior",
+			"type": "Link",
+			"classid": 20140,
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"links": [
+				"/sensors/11",
+				"/sensors/1",
+				"/schedules/6",
+				"/groups/1",
+				"/rules/8",
+				"/scenes/LtD7RGx-62BwT6B"
+			]
+		},
+		"22648": {
+			"name": "Wake up 4",
+			"description": "Wake up 4 behavior",
+			"type": "Link",
+			"classid": 20101,
+			"owner": "hoQ2w5SsL5qoQwMHPJzMRN0E0ra8Hkfwu8VQYwmN",
+			"recycle": false,
+			"links": [
+				"/sensors/10",
+				"/schedules/4",
+				"/schedules/5",
+				"/groups/1",
+				"/groups/2",
+				"/rules/6",
+				"/rules/7",
+				"/scenes/EiIc0nZsOYItO7y",
+				"/scenes/e7H483WRMyVrU7P"
+			]
+		},
+		"40111": {
+			"name": "HueLabs 2.0",
+			"description": "All installed formulas",
+			"type": "Link",
+			"classid": 1,
+			"owner": "QTDcviY9Bprh3DgYzhZ7jQ7mn4nHsXUIwPbeUWAj",
+			"recycle": false,
+			"links": []
+		}
+	}
+}
