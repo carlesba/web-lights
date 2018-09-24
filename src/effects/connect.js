@@ -1,5 +1,5 @@
 import {of, reject} from 'fluture'
-import * as Failure from 'types/Failure'
+import Failure from 'types/Failure'
 import { setConfig, notifyProblem, updateLights} from 'state/actions'
 import {compose, equals, path, tap} from 'ramda'
 import { clearProblems } from '../state/actions';

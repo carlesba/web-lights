@@ -1,6 +1,6 @@
 import connect from './connect'
 import * as mockStorage from '../adapters/Storage.mocks'
-import * as Failure from 'types/Failure'
+import Failure from 'types/Failure'
 import * as actions from 'state/actions'
 
 describe('effect.connect', () => {
