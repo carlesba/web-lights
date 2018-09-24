@@ -1,42 +1,50 @@
+import {of, reject} from 'fluture'
 import * as Failure from 'types/Failure'
-import { setConfig, showError, updateLights} from '../actions'
-
-const tap = fn => value => {
-  fn(value)
-  return value
-}
+import { setConfig, notifyProblem, updateLights} from 'state/actions'
+import {compose, equals, path, tap} from 'ramda'
+import { clearProblems } from '../state/actions';
 
 export const findHueIp = Storage =>
-  Storage.discoverHue().bimap(
-    () => Failure.NoInternet,
-    ip => ({ ip })
+  Storage.discoverHue().mapRej(() => Failure.NoInternet)
+
+const getUsername = path(['0', 'success', 'username'])
+const getErrorResponseType = path(['0', 'error', 'type'])
+const isPressLinkButtonError = compose(equals(101), getErrorResponseType)
+
+const getPostAppError = errorResponse => isPressLinkButtonError(errorResponse)
+  ? Failure.PressLinkButton
+  : Failure.CannotCreateApp
+
+const createAppInHue = ({Storage, ip}) =>
+  Storage.postAppInHue(ip).chain(response =>
+    getUsername(response)
+      ? of(getUsername(response))
+      : reject(getPostAppError(response))
   )
 
-const createAppInHue = Storage =>
-  Storage.postAppInHue()
-    .mapRej(() => Failure.CannotCreateApp)
-
-const getUserName = Storage =>
+const getUserName = ({Storage, ip}) =>
   Storage.getLocalConfig()
-    .chainRej(() => createAppInHue(Storage))
+    .chainRej(() => createAppInHue({Storage, ip}))
 
-const getHueConfig = Storage =>
-  findHueIp(Storage)
-    .chain(config =>
-      getUserName(Storage).map(username => ({...config, username}))
-    )
-
-const syncLights = (Storage, config) =>
+const syncLights = Storage => config =>
   Storage.syncLights(config)
     .mapRej(() => Failure.CannotSyncHue)
 
-const connect = Storage => () => (setState, state) =>
-  getHueConfig(Storage)
-    .map(tap(config => setState(setConfig(config))))
-    .chain(config => syncLights(Storage, config))
+const getHueConfig = Storage =>
+  findHueIp(Storage).chain(ip =>
+    getUserName({Storage, ip}).map(username => ({ip, username}))
+  )
+
+const connect = Storage => () => dispatch => {
+  of(dispatch(clearProblems()))
+    .chain(() => getHueConfig(Storage))
+    .map(tap(config => Storage.saveUsername(config.username)))
+    .map(tap(config => dispatch(setConfig(config))))
+    .chain(syncLights(Storage))
     .fork(
-      reason => setState(showError(reason)),
-      lights => setState(updateLights(lights))
+      reason => dispatch(notifyProblem(reason)),
+      lights => dispatch(updateLights(lights))
     )
+}
 
 export default connect

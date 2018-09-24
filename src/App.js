@@ -1,16 +1,25 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './App.css'
 import Provider from 'adapters/Provider'
 import HueFinder from './containers/HueFinder'
+import handlers from 'state/handlers'
 
-class App extends Component {
-  render () {
-    return (
-      <Provider initialState={{}}>
-        <HueFinder />
-      </Provider>
-    )
-  }
+const initialState = {}
+
+const middleware = (state, action, nextState) => {
+  console.log('::state', state)
+  console.log('action>>', action)
+  console.log('nextState::', nextState)
 }
+
+const App = () => (
+  <Provider
+    initialState={initialState}
+    handlers={handlers}
+    middleware={middleware}
+  >
+    <HueFinder />
+  </Provider>
+)
 
 export default App

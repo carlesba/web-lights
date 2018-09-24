@@ -1,37 +1,43 @@
-import { encaseP, tryP, of, reject } from 'fluture'
+import { tryP, of, reject } from 'fluture'
 import 'whatwg-fetch'
-
-const localStorage = window.localStorage
-const fetch = (url) => encaseP(window.fetch)(url)
-    .chain(res => tryP(_ => res.json()))
+import {path, props} from 'ramda'
 
 const devicetype = 'room-lights/app'
 
-const getLocalConfig = () => localStorage.getItem('hue.username')
+const getLocalConfig = localStorage =>
+  () => localStorage.getItem('hue.username')
     ? of(localStorage.getItem('hue.username'))
     : reject()
 
-const saveUsername = username =>
-  of(localStorage.setItem('hue.username', username))
+const saveUsername = local => username =>
+  of(local.setItem('hue.username', username))
 
+const discoverHue = fetch => () => fetch('https://discovery.meethue.com/')
+  .map(path(['0', 'internalipaddress']))
 
-const discoverHue = () => fetch('https://discovery.meethue.com/')
-
-const postAppInHue = config =>
-  fetch(`http://${config.ip}/api`, {
+const postAppInHue = fetch => ip =>
+  fetch(`http://${ip}/api`, {
     method: 'POST',
     body: JSON.stringify({ devicetype })
   })
 
-const syncLights = config =>
-  fetch(`http://${config.ip}/api/${config.username}/lights`)
 
-const Storage = {
-  getLocalConfig,
-  saveUsername,
-  discoverHue,
-  postAppInHue,
-  syncLights
-}
+const syncLights = fetch => config =>
+  of(config)
+    .map(props(['ip', 'username']))
+    .map(([ip, username]) => `http://${ip}/api/${username}/lights`)
+    .chain(url => fetch(url))
 
-export default Storage
+export const createStorage = ({remote, local}) => ({
+  getLocalConfig: getLocalConfig(local),
+  saveUsername: saveUsername(local),
+  discoverHue: discoverHue(remote),
+  postAppInHue: postAppInHue(remote),
+  syncLights: syncLights(remote)
+})
+
+export default createStorage({
+  remote: (url, payload) =>
+    tryP(() => fetch(url, payload)).chain(res => tryP(_ => res.json())),
+  local: window.localStorage
+})

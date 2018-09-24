@@ -1,13 +1,12 @@
 import connect from './connect'
 import * as mockStorage from '../adapters/Storage.mocks'
 import * as Failure from 'types/Failure'
-import * as actions from '../actions'
+import * as actions from 'state/actions'
 
 describe('effect.connect', () => {
   const testConnect = (Storage) => {
     const spy = jest.fn()
-    const setState = updater => spy(updater({}))
-    connect(Storage)()(setState)
+    connect(Storage)()(spy)
     return spy
   }
   const config = {
@@ -17,11 +16,16 @@ describe('effect.connect', () => {
   describe('happyPath', () => {
     it('gets username from localStorage, syncs lights and updates state config and lights', () => {
 
-      const Storage = { ...mockStorage.Success }
+      const Storage = {
+        ...mockStorage.Success,
+        saveUsername: jest.fn(mockStorage.Success.saveUsername)
+      }
 
       const spy = testConnect(Storage)
-      expect(spy).toHaveBeenCalledWith(actions.setConfig(config)({}))
-      expect(spy).toHaveBeenCalledWith(actions.updateLights(mockStorage.LIGHTS)({config}))
+      expect(spy).toHaveBeenCalledWith(actions.clearProblems())
+      expect(spy).toHaveBeenCalledWith(actions.setConfig(config))
+      expect(Storage.saveUsername).toHaveBeenCalledWith(config.username)
+      expect(spy).toHaveBeenCalledWith(actions.updateLights(mockStorage.LIGHTS))
     })
   })
   describe('problems', () => {
@@ -35,8 +39,20 @@ describe('effect.connect', () => {
       const spy = testConnect(Storage)
 
       expect(Storage.postAppInHue).toHaveBeenCalled()
-      expect(spy).toHaveBeenCalledWith(actions.setConfig(config)({}))
-      expect(spy).toHaveBeenCalledWith(actions.updateLights(mockStorage.LIGHTS)({config}))
+      expect(spy).toHaveBeenCalledWith(actions.setConfig(config))
+      expect(spy).toHaveBeenCalledWith(actions.updateLights(mockStorage.LIGHTS))
+    })
+    it('shows PressLinkButton Error when HueBridge asks for it', () => {
+      const Storage = {
+        ...mockStorage.Success,
+        postAppInHue: jest.fn(mockStorage.Failure.postAppInHueLink),
+        getLocalConfig: mockStorage.Failure.getLocalConfig
+      }
+
+      const spy = testConnect(Storage)
+
+      expect(Storage.postAppInHue).toHaveBeenCalled()
+      expect(spy).toHaveBeenCalledWith(actions.notifyProblem(Failure.PressLinkButton))
     })
     it('shows NoInternet Error when cant find Hue', () => {
       const Storage = {
@@ -46,7 +62,7 @@ describe('effect.connect', () => {
 
       const spy = testConnect(Storage)
 
-      expect(spy).toHaveBeenCalledWith(actions.showError(Failure.NoInternet)({}))
+      expect(spy).toHaveBeenCalledWith(actions.notifyProblem(Failure.NoInternet))
     })
     it('shows CannotCreateApp Error and wont sync lights when cant create app in Hue', () => {
       const Storage = {
@@ -59,7 +75,7 @@ describe('effect.connect', () => {
       const spy = testConnect(Storage)
 
       expect(Storage.syncLights).not.toHaveBeenCalled()
-      expect(spy).toHaveBeenCalledWith(actions.showError(Failure.CannotCreateApp)({}))
+      expect(spy).toHaveBeenCalledWith(actions.notifyProblem(Failure.CannotCreateApp))
     })
     it('shows CantSync Error when cant sync with hue', () => {
       const Storage = {
@@ -69,8 +85,8 @@ describe('effect.connect', () => {
 
       const spy = testConnect(Storage)
 
-      expect(spy).toHaveBeenCalledWith(actions.setConfig(config)({}))
-      expect(spy).toHaveBeenCalledWith(actions.showError(Failure.CannotSyncHue)({}))
+      expect(spy).toHaveBeenCalledWith(actions.setConfig(config))
+      expect(spy).toHaveBeenCalledWith(actions.notifyProblem(Failure.CannotSyncHue))
     })
   })
 })
