@@ -1,39 +1,42 @@
-import { curry, prop, call } from 'ramda'
-
 const listToObject = (fn, list) =>
   list.reduce((acc, key) => ({...acc, [key]: fn(key)}), {})
-
-const patternValidation = curry((states, config) => {
-  if (!states.every(state => config[state])) {
-    throw 'Every pattern should be covered'
-  }
-  return config
-})
-
-const SM = (name, validate) => ({
-  match: patterns => (
-    [patterns]
-      .map(validate)
-      .map(prop(name))
-      .map(call())
-      .shift()
-  )
-})
 
 /**
  * Finite-State Machine
  * @param {Array} states
  */
-const FSM = states => {
-  const $ = listToObject(name => SM(name, patternValidation(states)), states)
+const FSM = (groupName, states) => {
+  const validatePatterns = patterns => {
+    if (!states.every(state => patterns[state])) {
+      throw new Error(`[FSM(${groupName}).match(patterns)] Every pattern should be covered`)
+    }
+  }
+  const proto = {
+    parent () { return $ },
+    toString () { return `${this.FSM}(${this.state})` },
+    match (patterns) {
+      validatePatterns(patterns)
+      return patterns[this.state](this.state)
+    }
+  }
+  const $ = listToObject(
+    state => {
+      if (typeof state !== 'string') {
+        throw new Error(`State Machine should be an String. Found: ${typeof state}`)
+      }
+      return Object.create(proto, {
+        state: { value: state, enumerable: true },
+        FSM: { value: FSM }
+      })
+    },
+    states
+  )
   return ({
     ...$,
     when: patterns => {
-      patternValidation(states, patterns)
+      validatePatterns(patterns)
       const target = states.find(state => patterns[state]())
-      if(!target){
-        throw 'None of the patterns matched'
-      }
+      if(!target){ throw new Error('None of the patterns matched') }
       return $[target]
     }
   })

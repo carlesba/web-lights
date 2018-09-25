@@ -6,9 +6,9 @@ describe('Union', () => {
   const False = always(false)
   const Red = always('red')
   const states = ['On', 'Off']
-  const Light = Union(states)
+  const Light = Union('Light', states)
   it('creates the Union and its methods', () => {
-    expect(keys(Light)).toEqual(states.concat('when'))
+    expect(Object.keys(Light)).toEqual(states)
   })
   it('returns the state that matches given a pattern configuration', () => {
     const lightOn = Light.when({

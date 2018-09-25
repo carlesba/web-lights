@@ -5,7 +5,7 @@ describe('FSM', () => {
   const True = always(true)
   const False = always(false)
   const states = ['Red', 'Yellow', 'Green']
-  const TrafficLight = FSM(states)
+  const TrafficLight = FSM('TrafficLight', states)
   it('creates the FSM and its methods', () => {
     expect(keys(TrafficLight)).toEqual(states.concat('when'))
   })

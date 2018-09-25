@@ -1,25 +1,30 @@
 import {of, reject} from 'fluture'
-import Failure from 'types/Failure'
-import { setConfig, notifyProblem, updateLights} from 'state/actions'
-import {compose, equals, path, tap} from 'ramda'
-import { clearProblems } from '../state/actions';
+import FSM from 'models/FSM'
+import { equals, path, pipe, tap} from 'ramda'
+import {
+  checkHueBridge,
+  connectBridge,
+  clearNotification,
+  sendNotification,
+  updateLights
+} from 'state/actions'
+
+const Problems = FSM('Problems', ['PressButton', 'BadRequest', 'NoInternet'])
 
 export const findHueIp = Storage =>
-  Storage.discoverHue().mapRej(() => Failure.NoInternet)
+  Storage.discoverHue().mapRej(() => Problems.NoInternet)
 
 const getUsername = path(['0', 'success', 'username'])
-const getErrorResponseType = path(['0', 'error', 'type'])
-const isPressLinkButtonError = compose(equals(101), getErrorResponseType)
+const isPressLinkButtonError = pipe(path(['0', 'error', 'type']), equals(101))
 
 const getPostAppError = errorResponse => isPressLinkButtonError(errorResponse)
-  ? Failure.PressLinkButton
-  : Failure.CannotCreateApp
+  ? Problems.PressButton
+  : Problems.BadRequest
 
 const createAppInHue = ({Storage, ip}) =>
-  Storage.postAppInHue(ip).chain(response =>
-    getUsername(response)
-      ? of(getUsername(response))
-      : reject(getPostAppError(response))
+  Storage.postAppInHue(ip).chain(response => getUsername(response)
+    ? of(getUsername(response))
+    : reject(getPostAppError(response))
   )
 
 const getUserName = ({Storage, ip}) =>
@@ -28,21 +33,26 @@ const getUserName = ({Storage, ip}) =>
 
 const syncLights = Storage => config =>
   Storage.syncLights(config)
-    .mapRej(() => Failure.CannotSyncHue)
+    .mapRej(() => Problems.BadRequest)
 
 const getHueConfig = Storage =>
-  findHueIp(Storage).chain(ip =>
-    getUserName({Storage, ip}).map(username => ({ip, username}))
-  )
+  findHueIp(Storage)
+    .chain(ip => getUserName({Storage, ip})
+      .map(username => ({ip, username}))
+    )
 
 const connect = Storage => () => dispatch => {
-  of(dispatch(clearProblems()))
+  of(dispatch(clearNotification()))
     .chain(() => getHueConfig(Storage))
     .map(tap(config => Storage.saveUsername(config.username)))
-    .map(tap(config => dispatch(setConfig(config))))
+    .map(tap(config => dispatch(connectBridge(config))))
     .chain(syncLights(Storage))
     .fork(
-      reason => dispatch(notifyProblem(reason)),
+      problem => problem.match({
+        PressButton: () => dispatch(checkHueBridge()),
+        BadRequest: () => dispatch(sendNotification('BadRequest')),
+        NoInternet: () => dispatch(sendNotification('BadRequest'))
+      }),
       lights => dispatch(updateLights(lights))
     )
 }

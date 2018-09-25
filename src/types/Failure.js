@@ -1,5 +1,5 @@
 import FSM from 'models/FSM'
-const Failure = FSM([
+const Failure = FSM('Failure', [
  'NoInternet',
  'CannotFindLocalConfig',
  'CannotCreateApp',

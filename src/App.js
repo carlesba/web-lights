@@ -1,10 +1,8 @@
 import React from 'react'
 import './App.css'
 import Provider from 'adapters/Provider'
-import HueFinder from './containers/HueFinder'
-import handlers from 'state/handlers'
-
-const initialState = {}
+import ConnectPage from 'containers/ConnectPage'
+import handlers, {initialState} from 'state/handlers'
 
 const middleware = (state, action, nextState) => {
   console.log('::state', state)
@@ -18,7 +16,7 @@ const App = () => (
     handlers={handlers}
     middleware={middleware}
   >
-    <HueFinder />
+    <ConnectPage />
   </Provider>
 )
 
