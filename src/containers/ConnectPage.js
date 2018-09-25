@@ -2,8 +2,7 @@ import React from 'react'
 import Container from 'adapters/Container'
 import Storage from 'adapters/Storage'
 import connectHue from 'effects/connect'
-import { getConnectionStatus, getNotifications } from 'state/selectors'
-import { clearNotification } from 'state/actions'
+import { getConnectionStatus } from 'state/selectors'
 import Page from 'views/Page'
 import ConnectButton from 'views/ConnectButton'
 
@@ -32,30 +31,14 @@ const ConnectionStatus = ({status, onConnect}) => (
   })
 )
 
-const Notifications = ({message, onClear}) =>
-  <React.Fragment>{message.match({
-    Some: value => (
-      <div>
-        <span>{value}</span>
-        <button onClick={onClear}>XXXXX</button>
-      </div>
-    ),
-    None: () => <div />
-  })}</React.Fragment>
-
 const presenter = {
-  selectors: { getConnectionStatus, getNotifications },
-  actions: { clearNotification },
+  selectors: { getConnectionStatus },
   effects: { connect: connectHue(Storage) }
 }
 
 const ConnectPage = () => (
   <Container {...presenter} >{$ => (
     <Page>
-      <Notifications
-        message={$.getNotifications()}
-        onClear={$.clearNotifications}
-      />
       <ConnectionStatus
         status={$.getConnectionStatus()}
         onConnect={$.connect}

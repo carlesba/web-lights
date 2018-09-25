@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import Provider from 'adapters/Provider'
 import ConnectPage from 'containers/ConnectPage'
+import Notifications from 'containers/Notifications'
 import handlers, {initialState} from 'state/handlers'
 
 const middleware = (state, action, nextState) => {
@@ -16,6 +17,7 @@ const App = () => (
     handlers={handlers}
     middleware={middleware}
   >
+    <Notifications />
     <ConnectPage />
   </Provider>
 )
