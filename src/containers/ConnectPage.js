@@ -4,30 +4,49 @@ import Storage from 'adapters/Storage'
 import connectHue from 'effects/connect'
 import { getConnectionStatus } from 'state/selectors'
 import Page from 'views/Page'
+import Centerer from 'views/Centerer'
+import Text from 'views/Text'
+import Title from 'views/Title'
+import Wrapper from 'views/Wrapper'
 import ConnectButton from 'views/ConnectButton'
 
 const ConnectionStatus = ({status, onConnect}) => (
   status.match({
     Connected: ({ip, username}) => (
-      <div>
-        <h1>Connected!</h1>
-        <div>ip: {ip}</div>
-        <div>username: {username}</div>
-      </div>
+      <Centerer>
+        <Wrapper>
+          <Title>Success!</Title>
+        </Wrapper>
+        <Text>Bridge connected</Text>
+        <Text>ip: {ip}</Text>
+        <Text>username: {username}</Text>
+        <Wrapper size='40px'/>
+      </Centerer>
     ),
     PressButton: () => (
-      <div>
-        <h1>need action</h1>
-        <div>Press Hue Link Button and try again</div>
-        <ConnectButton onClick={onConnect} />
-      </div>
+      <Centerer>
+        <Wrapper>
+          <Title>Just one more thing…</Title>
+        </Wrapper>
+        <Wrapper>
+          <Text>Push the blue button on the Hue Bridge and then try to connect again</Text>
+        </Wrapper>
+        <Wrapper size='40px' />
+        <ConnectButton onClick={onConnect}>Bridge button pressed!</ConnectButton>
+      </Centerer>
     ),
     Disconnected: () => (
-      <div>
-        <h1>need action</h1>
-        <div>No Connection</div>
+      <Centerer>
+        <Wrapper>
+          <Title>Disconnected</Title>
+        </Wrapper>
+        <Wrapper>
+          <Text>Make sure you are in the same network as the Hue Bridge and connect</Text>
+        </Wrapper>
+        <Wrapper size='40px' />
         <ConnectButton onClick={onConnect}>Connect</ConnectButton>
-      </div>)
+      </Centerer>
+    )
   })
 )
 

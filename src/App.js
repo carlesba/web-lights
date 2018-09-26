@@ -1,9 +1,9 @@
 import React from 'react'
-import './App.css'
 import Provider from 'adapters/Provider'
 import ConnectPage from 'containers/ConnectPage'
 import Notifications from 'containers/Notifications'
 import handlers, {initialState} from 'state/handlers'
+import Logo from './views/Logo'
 
 const middleware = (state, action, nextState) => {
   console.log('::state', state)
@@ -17,6 +17,7 @@ const App = () => (
     handlers={handlers}
     middleware={middleware}
   >
+    <Logo>Web Lights</Logo>
     <Notifications />
     <ConnectPage />
   </Provider>

@@ -1,12 +1,11 @@
 import styled from 'styled-components'
 
-const ConnectButton = styled.button`
+const Notification = styled.div`
   background: linear-gradient(
     to top right,
-    #0051ff, #00ffff
+    red, #f06d06
   );
-  font-size: 20px;
-  text-transform: uppercase;
+  font-size: 15px;
   font-weight: bold;
   color: white;
   padding: 10px 20px;
@@ -17,6 +16,6 @@ const ConnectButton = styled.button`
   box-shadow: 0 0 10px #333;
   cursor: pointer;
 `
-ConnectButton.displayName = 'ConnectButton'
+Notification.displayName = 'Notification'
 
-export default ConnectButton
+export default Notification

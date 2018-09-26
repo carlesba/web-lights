@@ -2,17 +2,25 @@ import React from 'react'
 import Container from 'adapters/Container'
 import { getNotifications } from 'state/selectors'
 import { clearNotification } from 'state/actions'
+import Notification from 'views/Notification'
+import styled from 'styled-components'
 
-const Notification = ({message, onClear}) =>
-  <div>{message.match({
+const Corner = styled.div`
+  position: fixed;
+  top: 20px;
+  right: 20px;
+`
+
+const NotificationRoot = ({message, onClear}) =>
+  <Corner>{message.match({
     Some: value => (
-      <div>
+      <Notification>
         <span>{value}</span>
-        <button onClick={onClear}>XXXXX</button>
-      </div>
+        <span style={{marginLeft: 10}} onClick={() => onClear()}>✕</span>
+      </Notification>
     ),
     None: () => <div />
-  })}</div>
+  })}</Corner>
 
 
 const presenter = {
@@ -22,9 +30,9 @@ const presenter = {
 
 const Notifications = () => (
   <Container {...presenter}>{$ =>
-    <Notification
+    <NotificationRoot
       message={$.getNotifications()}
-      onClear={$.clearNotifications}
+      onClear={$.clearNotification}
     />
   }</Container>
 )
