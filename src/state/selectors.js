@@ -1,5 +1,6 @@
 import Connection from 'types/Connection'
 import Maybe from 'types/Maybe'
+import FSM from 'models/FSM'
 import { complement, prop, path, T } from 'ramda'
 
 /**
@@ -31,6 +32,13 @@ export const getConnectionStatus = () => state =>
     PressButton: () => getBridgeAccesRequired(state),
     Disconnected: T
   })
+
+const Route = FSM('Route', ['Connect', 'Dashboard'])
+
+export const getCurrentPage = () => state => Route.when({
+  Connect: T,
+  Dashboard: T
+})
 
 export const getNotifications = () => state => Maybe.when({
     Some: () => prop('notification', state),
