@@ -1,5 +1,5 @@
 import { of, reject } from 'fluture'
-import lights from '../../fixtures/lights.json'
+import lights from 'fixtures/lights.json'
 
 export const IP = '192.168.1.100'
 export const USERNAME = 'username'
