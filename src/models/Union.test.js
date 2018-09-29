@@ -1,5 +1,5 @@
 import Union from './Union'
-import { always, keys } from 'ramda'
+import { always } from 'ramda'
 
 describe('Union', () => {
   const True = always(true)

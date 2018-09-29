@@ -1,9 +1,6 @@
 import { mapObjIndexed, prop, tap, either } from 'ramda'
 
 // Translators
-const listToObject = (fn, list) =>
-  list.reduce((acc, key) => ({...acc, [key]: fn(key)}), {})
-
 const matchPattern = types => patterns =>
   types.reduce((prev, type) => {
     if(prev.type) return prev
@@ -36,26 +33,32 @@ const checkPattern = either(prop('type'), throwPatternNotFound)
  * @param {Array} types
  */
 const Union = (name, types) => {
+
   const validatePatterns = either(coverAllPatterns(types), throwMissingTypes)
-  const proto = {
-    toString () { return `${name}(${this.type})` },
+
+  const createUnionTypePrototype = type => ({
+    __type__: type,
+    __union__: name,
+    __unionTypes__: types,
+    toString () { return `${this.__union__}.${this.__type__}[]` },
     match (patterns) {
       return [patterns]
       .map(tap(p => validatePatterns(p)))
-      .map(prop(this.type))
+      .map(prop(this.__type__))
       .map(pattern => pattern(this.value))
       .shift()
     }
-  }
-  const UnionTypes = listToObject(type => {
-    validateTypeString(type)
-    return value => Object.create(proto, {
-      value: { value },
-      type: { value: type },
-      union: { value: name },
-      unionTypes: { value: types }
-    })
-  }, types)
+  })
+  const createUnionType = unionTypePrototype =>
+    value => Object.create(unionTypePrototype, { value: { value } })
+
+  const UnionTypes = types
+    .map(tap(validateTypeString))
+    .map(createUnionTypePrototype)
+    .reduce((prev, current) => ({
+      ...prev,
+      [current.__type__]: createUnionType(current)
+    }), {})
 
   const UnionTypePrototype = {
     types: UnionTypes,

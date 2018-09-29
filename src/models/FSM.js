@@ -1,5 +1,10 @@
-const listToObject = (fn, list) =>
-  list.reduce((acc, key) => ({...acc, [key]: fn(key)}), {})
+import {tap} from 'ramda'
+
+const validateString = type => {
+  if (typeof type !== 'string') {
+    throw new Error(`State Machine should be an String. Found: ${typeof type}`)
+  }
+}
 
 /**
  * Finite-State Machine
@@ -12,32 +17,32 @@ const FSM = (groupName, states) => {
     }
   }
   const proto = {
-    parent () { return $ },
+    __states__: states,
+    __group__: groupName,
     toString () { return `${this.FSM}(${this.state})` },
     match (patterns) {
       validatePatterns(patterns)
       return patterns[this.state](this.state)
     }
   }
-  const $ = listToObject(
-    state => {
-      if (typeof state !== 'string') {
-        throw new Error(`State Machine should be an String. Found: ${typeof state}`)
-      }
-      return Object.create(proto, {
-        state: { value: state, enumerable: true },
-        FSM: { value: FSM }
-      })
-    },
-    states
-  )
+  const createFS = state => Object.create(proto, {
+    state: { value: state, enumerable: true }
+  })
+
+  const FiniteStates = states
+    .map(tap(validateString))
+    .reduce((prev, state) => ({
+      ...prev,
+      [state]: createFS(state)
+    }), {})
+
   return ({
-    ...$,
+    ...FiniteStates,
     when: patterns => {
       validatePatterns(patterns)
       const target = states.find(state => patterns[state]())
       if(!target){ throw new Error('None of the patterns matched') }
-      return $[target]
+      return FiniteStates[target]
     }
   })
 }
