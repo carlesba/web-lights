@@ -1,8 +1,8 @@
 import React from 'react'
 import {Consumer} from './context'
-import mapStateToSelectors from '../translators/mapStateToSelectors'
-import mapDispatchToActions from '../translators/mapDispatchToActions'
-import mapStateToEffects from '../translators/mapStateToEffects'
+import mapStateToSelectors from './adapters/mapStateToSelectors'
+import mapDispatchToActions from './adapters/mapDispatchToActions'
+import mapStateToEffects from './adapters/mapStateToEffects'
 
 const Container = ({selectors = {}, actions = {}, effects = {}, children}) => (
   <Consumer>

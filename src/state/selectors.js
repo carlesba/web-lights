@@ -1,5 +1,5 @@
-import Connection from 'types/Connection'
-import Maybe from 'types/Maybe'
+import Connection from 'unions/Connection'
+import Maybe from 'unions/Maybe'
 import { complement, prop, path, T } from 'ramda'
 
 /**

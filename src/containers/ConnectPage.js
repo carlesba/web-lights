@@ -1,6 +1,6 @@
 import React from 'react'
-import Container from 'adapters/Container'
-import Storage from 'adapters/Storage'
+import Container from 'connectors/Container'
+import Storage from 'connectors/Storage'
 import connectHue from 'effects/connect'
 import { getConnectionStatus } from 'state/selectors'
 import Page from 'views/Page'

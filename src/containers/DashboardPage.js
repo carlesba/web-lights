@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from 'adapters/Container'
+import Container from 'connectors/Container'
 import Page from 'views/Page'
 import {getLights} from 'state/selectors'
 import Wrapper from 'views/Wrapper'

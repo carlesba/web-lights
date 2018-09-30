@@ -1,5 +1,5 @@
 import React from 'react'
-import Provider from 'adapters/Provider'
+import Provider from 'connectors/Provider'
 import ConnectPage from 'containers/ConnectPage'
 import Notifications from 'containers/Notifications'
 import handlers, {initialState} from 'state/handlers'

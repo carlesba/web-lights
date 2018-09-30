@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from 'adapters/Container'
+import Container from 'connectors/Container'
 import { getCurrentPage } from 'state/selectors'
 import {Transition} from 'react-spring'
 import Given from 'models/GWD'

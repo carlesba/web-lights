@@ -1,5 +1,5 @@
 import React from 'react'
-import Container from 'adapters/Container'
+import Container from 'connectors/Container'
 import { getNotifications } from 'state/selectors'
 import { clearNotification } from 'state/actions'
 import Notification from 'views/Notification'
