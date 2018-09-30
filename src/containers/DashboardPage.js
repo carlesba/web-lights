@@ -4,10 +4,8 @@ import Page from 'views/Page'
 import {getLights} from 'state/selectors'
 import Wrapper from 'views/Wrapper'
 import Title from 'views/Title'
+import Light from 'views/Light'
 
-const Light = ({light}) => (
-  <div style={{background: 'red', height: '20px'}}>{light.name}</div>
-)
 
 const Lights = ({lights}) => (
   <Page>
