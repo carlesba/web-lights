@@ -7,6 +7,7 @@ import Page from 'views/Page'
 import Centerer from 'views/Centerer'
 import Text from 'views/Text'
 import Title from 'views/Title'
+import Logo from 'views/Logo'
 import Wrapper from 'views/Wrapper'
 import ConnectButton from 'views/ConnectButton'
 
@@ -58,6 +59,7 @@ const presenter = {
 const ConnectPage = () => (
   <Container {...presenter} >{$ => (
     <Page>
+      <Logo />
       <ConnectionStatus
         status={$.getConnectionStatus()}
         onConnect={$.connect}

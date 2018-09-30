@@ -1,3 +1,4 @@
+import React from 'react'
 import styled from 'styled-components'
 
 const Logo = styled.div`
@@ -9,4 +10,4 @@ const Logo = styled.div`
 `
 Logo.displayName = 'Logo'
 
-export default Logo
+export default () => <Logo>Web Lights</Logo>

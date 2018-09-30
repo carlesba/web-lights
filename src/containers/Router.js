@@ -19,11 +19,17 @@ const Router = ({children}) => (
 
 const mapSideToAnimation = side => Given(side)
   .when([
+    s => s === 'top',
     s => s === 'bottom',
     s => s === 'left',
     s => s === 'right'
   ])
   .do([
+    () => ({
+      from: { position: 'absolute', top: -100, left: 0 },
+      enter: { top: 0 },
+      leave: { top: -100 }
+    }),
     () => ({
       from: { position: 'absolute', top: 100, left: 0 },
       enter: { top: 0 },
@@ -39,17 +45,18 @@ const mapSideToAnimation = side => Given(side)
       enter: { left: 0 },
       leave: { left: 100 }
     }),
-    () => ({
-      from: { position: 'absolute', top: -100, left: 0 },
-      enter: { top: 0 },
-      leave: { top: -100 }
-    })
+    () => ({})
   ])
+
+const mapStylesFromSpring = styles => ({
+  ...styles,
+  top: typeof styles.top === 'number' ? `${styles.top}%` : undefined
+})
 
 export const Route = ({page, side, selected, children}) => (
   <Transition {...mapSideToAnimation(side)} >
     {selected && (styles =>
-      <div style={{...styles, top: `${styles.top}%`}}>
+      <div style={mapStylesFromSpring(styles)}>
         {children}
       </div>
     )}
