@@ -1,13 +1,59 @@
 import React from 'react'
 import Container from 'adapters/Container'
 import { getCurrentPage } from 'state/selectors'
+import {Transition} from 'react-spring'
+import Given from 'models/GWD'
 
 const presenter = {
   selectors: { getCurrentPage }
 }
 
 const Router = ({children}) => (
-  <Container {...presenter}>{$ => children($.getCurrentPage()) }</Container>
+  <Container {...presenter}>{$ => {
+    const page = $.getCurrentPage()
+    return React.Children.map(children, child =>
+      React.cloneElement(child, { selected: child.props.page === page })
+    )}
+  }</Container>
+)
+
+const mapSideToAnimation = side => Given(side)
+  .when([
+    s => s === 'bottom',
+    s => s === 'left',
+    s => s === 'right'
+  ])
+  .do([
+    () => ({
+      from: { position: 'absolute', top: 100, left: 0 },
+      enter: { top: 0 },
+      leave: { top: 100 }
+    }),
+    () => ({
+      from: { position: 'absolute', top: 100, left: -100 },
+      enter: { left: 0 },
+      leave: { left: -100 }
+    }),
+    () => ({
+      from: { position: 'absolute', top: 100, left: 100 },
+      enter: { left: 0 },
+      leave: { left: 100 }
+    }),
+    () => ({
+      from: { position: 'absolute', top: -100, left: 0 },
+      enter: { top: 0 },
+      leave: { top: -100 }
+    })
+  ])
+
+export const Route = ({page, side, selected, children}) => (
+  <Transition {...mapSideToAnimation(side)} >
+    {selected && (styles =>
+      <div style={{...styles, top: `${styles.top}%`}}>
+        {children}
+      </div>
+    )}
+  </Transition>
 )
 
 export default Router

@@ -5,7 +5,7 @@ import Notifications from 'containers/Notifications'
 import handlers, {initialState} from 'state/handlers'
 import Logo from './views/Logo'
 import DashboardPage from 'containers/DashboardPage'
-import Router from 'containers/Router'
+import Router, {Route} from 'containers/Router'
 
 const middleware = (state, action, nextState) => {
   console.log('::state', state)
@@ -21,10 +21,10 @@ const App = () => (
   >
     <Logo>Web Lights</Logo>
     <Notifications />
-    <Router>{page => page.match({
-      Connect: ConnectPage,
-      Dashboard: DashboardPage
-    })}</Router>
+    <Router>
+      <Route page='connect' side='bottom'><ConnectPage /></Route>
+      <Route page='dashboard' side='top'><DashboardPage /></Route>
+    </Router>
   </Provider>
 )
 
