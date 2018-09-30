@@ -9,6 +9,7 @@ import { complement, prop, path, T } from 'ramda'
 const getConfigUsername = path(['config', 'username'])
 const getBridgeIp = path(['config', 'ip'])
 const getBridgeAccesRequired = prop('bridgeAccessRequired')
+const currentPage = path(['navigation', 'page'])
 const isConnected = state => (
     [ getConfigUsername, getBridgeIp, complement(getBridgeAccesRequired) ]
       .every(fn => fn(state))
@@ -33,11 +34,11 @@ export const getConnectionStatus = () => state =>
     Disconnected: T
   })
 
-const Route = FSM('Route', ['Connect', 'Dashboard'])
+const Route = FSM('Route', ['Dashboard', 'Connect'])
 
 export const getCurrentPage = () => state => Route.when({
-  Connect: T,
-  Dashboard: T
+  Dashboard: () => currentPage(state) === 'dashboard',
+  Connect: () => currentPage(state) === 'connect'
 })
 
 export const getNotifications = () => state => Maybe.when({

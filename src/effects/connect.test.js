@@ -40,6 +40,7 @@ describe('effect.connect', () => {
       expect(Storage.postAppInHue).toHaveBeenCalled()
       expect(spy).toHaveBeenCalledWith(actions.connectBridge(config))
       expect(spy).toHaveBeenCalledWith(actions.updateLights(mockStorage.LIGHTS))
+      expect(spy).toHaveBeenCalledWith(actions.showDashboard())
     })
     it('shows PressLinkButton Error when HueBridge asks for it', () => {
       const Storage = {

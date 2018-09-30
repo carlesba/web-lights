@@ -6,6 +6,7 @@ import {
   connectBridge,
   clearNotification,
   sendNotification,
+  showDashboard,
   updateLights
 } from 'state/actions'
 
@@ -47,13 +48,14 @@ const connect = Storage => () => dispatch => {
     .map(tap(config => Storage.saveUsername(config.username)))
     .map(tap(config => dispatch(connectBridge(config))))
     .chain(syncLights(Storage))
+    .map(tap(lights => dispatch(updateLights(lights))))
     .fork(
       problem => problem.match({
         PressButton: () => dispatch(checkHueBridge()),
         BadRequest: () => dispatch(sendNotification('BadRequest')),
         NoInternet: () => dispatch(sendNotification('BadRequest'))
       }),
-      lights => dispatch(updateLights(lights))
+      () => dispatch(showDashboard())
     )
 }
 

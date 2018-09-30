@@ -6,7 +6,7 @@ import Wrapper from 'views/Wrapper'
 import Title from 'views/Title'
 
 const Light = ({light}) => (
-  <div>{light.name}</div>
+  <div style={{background: 'red', height: '20px'}}>{light.name}</div>
 )
 
 const Lights = ({lights}) => (
