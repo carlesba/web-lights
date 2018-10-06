@@ -43,7 +43,7 @@ const getHueConfig = Storage =>
       .map(username => ({ip, username}))
     )
 
-export const createConnect = Storage => ({dispatch}) => {
+const connect = ({dispatch, Storage}) => {
   getHueConfig(Storage)
     .map(tap(() => dispatch(clearNotification())))
     .map(tap(config => Storage.saveUsername(config.username)))
@@ -60,4 +60,4 @@ export const createConnect = Storage => ({dispatch}) => {
     )
 }
 
-export default createConnect(Storage)
+export default connect

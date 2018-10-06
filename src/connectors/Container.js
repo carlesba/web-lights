@@ -11,15 +11,15 @@ const bindDispatch = (dispatch, actions) =>
 const bindContext = (context, effects) =>
   mapObjIndexed(effect => effect.bind(effect, context), effects)
 
-const Container = ({selectors = {}, actions = {}, effects = {}, children}) => (
+const Container = ({selectors = {}, actions = {}, effects = {}, context = {}, children}) => (
   <Consumer>
-    {context =>
+    {providerContext =>
       children({
-        getState: context.getState,
-        dispatch: context.dispatch,
-        ...bindState(context.getState(), selectors),
-        ...bindDispatch(context.dispatch, actions),
-        ...bindContext(context, effects),
+        getState: providerContext.getState,
+        dispatch: providerContext.dispatch,
+        ...bindState(providerContext.getState(), selectors),
+        ...bindDispatch(providerContext.dispatch, actions),
+        ...bindContext({...providerContext, ...context}, effects),
       })
     }
   </Consumer>

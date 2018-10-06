@@ -1,11 +1,11 @@
-import { createConnect } from './connect'
+import connect from './connect'
 import * as mockStorage from 'connectors/Storage.mocks'
 import * as actions from 'state/actions'
 
 describe('effect.connect', () => {
   const testConnect = (Storage) => {
     const dispatchSpy = jest.fn()
-    createConnect(Storage)({dispatch: dispatchSpy})
+    connect({Storage, dispatch: dispatchSpy})
     return dispatchSpy
   }
   const config = {
