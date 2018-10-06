@@ -18,12 +18,12 @@ const isConnected = state => (
  * View Selectors
  */
 
-export const getLights = () => state => Maybe.when({
+export const getLights = state => Maybe.when({
   Some: () => prop('lights', state),
   None: T
 })
 
-export const getConnectionStatus = () => state =>
+export const getConnectionStatus = state =>
   Connection.when({
     Connected: () => isConnected(state) && ({
       username: getConfigUsername(state),
@@ -33,9 +33,9 @@ export const getConnectionStatus = () => state =>
     Disconnected: T
   })
 
-export const getCurrentPage = () => state => currentPage(state)
+export const getCurrentPage = currentPage
 
-export const getNotifications = () => state => Maybe.when({
-    Some: () => prop('notification', state),
-    None: T
-  })
+export const getNotifications = state => Maybe.when({
+  Some: () => prop('notification', state),
+  None: T
+})

@@ -1,12 +1,12 @@
-import connect from './connect'
-import * as mockStorage from '../adapters/Storage.mocks'
+import { createConnect } from './connect'
+import * as mockStorage from 'connectors/Storage.mocks'
 import * as actions from 'state/actions'
 
 describe('effect.connect', () => {
   const testConnect = (Storage) => {
-    const setStateSpy = jest.fn()
-    connect(Storage)()(setStateSpy)
-    return setStateSpy
+    const dispatchSpy = jest.fn()
+    createConnect(Storage)({dispatch: dispatchSpy})
+    return dispatchSpy
   }
   const config = {
     ip: mockStorage.IP,

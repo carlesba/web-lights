@@ -9,19 +9,21 @@ describe('Provider', () => {
     const wrapper = shallow(<Provider initialState={initialState} />)
     expect(wrapper.state()).toBe(initialState)
   })
-  it('provides state and dispatch functions to context.Provider', () => {
+  it('provides getState and dispatch functions to context.Provider', () => {
     const wrapper = shallow(
       <Provider initialState={initialState}>
         {props => <div props={props} />}
       </Provider>
     )
-    expect(wrapper.find(context.Provider).props()).toEqual({
+    const providerProps = wrapper.find(context.Provider).props()
+    expect(providerProps).toEqual({
       value: {
-        state: initialState,
+        getState: expect.any(Function),
         dispatch: expect.any(Function)
       },
       children: expect.any(Function)
     })
+    expect(providerProps.value.getState()).toBe(initialState)
   })
   it('provides dispatch function that triggers handlers when event.type matches one of them', () => {
     const handlers = {foo: jest.fn(() => ({ a: 2 }))}

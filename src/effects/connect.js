@@ -1,6 +1,7 @@
 import {of, reject} from 'fluture'
 import FSM from 'models/FSM'
 import { equals, path, pipe, tap} from 'ramda'
+import Storage from 'connectors/Storage'
 import {
   checkHueBridge,
   connectBridge,
@@ -42,9 +43,9 @@ const getHueConfig = Storage =>
       .map(username => ({ip, username}))
     )
 
-const connect = Storage => () => dispatch => {
-  of(dispatch(clearNotification()))
-    .chain(() => getHueConfig(Storage))
+export const createConnect = Storage => ({dispatch}) => {
+  getHueConfig(Storage)
+    .map(tap(() => dispatch(clearNotification())))
     .map(tap(config => Storage.saveUsername(config.username)))
     .map(tap(config => dispatch(connectBridge(config))))
     .chain(syncLights(Storage))
@@ -59,4 +60,4 @@ const connect = Storage => () => dispatch => {
     )
 }
 
-export default connect
+export default createConnect(Storage)
