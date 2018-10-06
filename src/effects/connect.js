@@ -1,60 +1,23 @@
-import {of, reject} from 'fluture'
-import FSM from 'models/FSM'
-import { equals, path, pipe, tap} from 'ramda'
-import Storage from 'connectors/Storage'
 import {
   checkHueBridge,
-  connectBridge,
-  clearNotification,
   sendNotification,
-  showDashboard,
-  updateLights
+  showDashboard
 } from 'state/actions'
 
-const Problems = FSM('Problems', ['PressButton', 'BadRequest', 'NoInternet'])
+import setupHue from './common/setupHue'
+import readLights from './common/readLights'
 
-export const findHueIp = Storage =>
-  Storage.discoverHue().mapRej(() => Problems.NoInternet)
+const BAD_REQUEST = sendNotification('BadRequest')
 
-const getUsername = path(['0', 'success', 'username'])
-const isPressLinkButtonError = pipe(path(['0', 'error', 'type']), equals(101))
-
-const getPostAppError = errorResponse => isPressLinkButtonError(errorResponse)
-  ? Problems.PressButton
-  : Problems.BadRequest
-
-const createAppInHue = ({Storage, ip}) =>
-  Storage.postAppInHue(ip).chain(response => getUsername(response)
-    ? of(getUsername(response))
-    : reject(getPostAppError(response))
-  )
-
-const getUserName = ({Storage, ip}) =>
-  Storage.getLocalConfig()
-    .chainRej(() => createAppInHue({Storage, ip}))
-
-const syncLights = Storage => config =>
-  Storage.syncLights(config)
-    .mapRej(() => Problems.BadRequest)
-
-const getHueConfig = Storage =>
-  findHueIp(Storage)
-    .chain(ip => getUserName({Storage, ip})
-      .map(username => ({ip, username}))
-    )
-
-const connect = ({dispatch, Storage}) => {
-  getHueConfig(Storage)
-    .map(tap(() => dispatch(clearNotification())))
-    .map(tap(config => Storage.saveUsername(config.username)))
-    .map(tap(config => dispatch(connectBridge(config))))
-    .chain(syncLights(Storage))
-    .map(tap(lights => dispatch(updateLights(lights))))
+const connect = context => {
+  const { dispatch } = context
+  setupHue(context)
+    .chain(config => readLights(context, config))
     .fork(
       problem => problem.match({
         PressButton: () => dispatch(checkHueBridge()),
-        BadRequest: () => dispatch(sendNotification('BadRequest')),
-        NoInternet: () => dispatch(sendNotification('BadRequest'))
+        BadRequest: () => dispatch(BAD_REQUEST),
+        NoInternet: () => dispatch(BAD_REQUEST)
       }),
       () => dispatch(showDashboard())
     )

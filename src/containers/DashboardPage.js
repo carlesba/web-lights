@@ -5,13 +5,14 @@ import {getLights} from 'state/selectors'
 import Wrapper from 'views/Wrapper'
 import Title from 'views/Title'
 import Light from 'views/Light'
+import syncLights from 'effects/syncLights'
 
-
-const Lights = ({lights}) => (
+const Lights = ({lights, onSync}) => (
   <Page>
     <Wrapper>
       <Title>Dashboard</Title>
     </Wrapper>
+    <button onClick={onSync}>Sync</button>
     {lights.match({
       Some: lights => lights.map(light => (
         <Light key={light.uniqueid} light={light} />
@@ -22,14 +23,13 @@ const Lights = ({lights}) => (
 )
 
 const presenter = {
-  selectors: {
-    getLights
-  }
+  selectors: { getLights },
+  effects: { onSync: syncLights }
 }
 
 const DashboardPage = () => (
   <Container {...presenter} >{$ => (
-    <Lights lights={$.getLights()} />
+    <Lights lights={$.getLights()} onSync={$.onSync} />
   )}</Container>
 )
 

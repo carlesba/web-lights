@@ -1,8 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import { path, prop } from 'ramda'
+import { path, pick, pipe, prop } from 'ramda'
+import { xyBriToHex } from 'Color'
 
-const getColor = () => 'red'
+const getXYBriFromLight = pipe(prop('state'), pick(['xy', 'bri']))
+
+const getColor = light =>
+  [getXYBriFromLight(light)]
+    .map(({xy, bri}) => ({x: xy[0], y: xy[1], bri: bri / 255}))
+    .map(xyBriToHex)
+    .shift()
+
 const getName = prop('name')
 const getStatus = path(['state', 'on'])
 
@@ -19,7 +27,7 @@ const LightWrapper = styled.div`
 const LightColor = styled.div`
   height: 50px;
   width: 50px;
-  background: red;
+  background: ${p => p.color};
   border-radius: 50%;
   margin-right: 20px;
 `

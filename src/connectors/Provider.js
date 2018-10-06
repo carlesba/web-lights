@@ -11,6 +11,7 @@ export default class Provider extends React.Component {
   }
   getState = () => this.state
   api = () => ({
+    ...this.props.services,
     getState: this.getState,
     dispatch: this.dispatch
   })

@@ -9,7 +9,6 @@ import Title from 'views/Title'
 import Logo from 'views/Logo'
 import Wrapper from 'views/Wrapper'
 import ConnectButton from 'views/ConnectButton'
-import Storage from 'connectors/Storage'
 
 const ConnectionStatus = ({status, onConnect}) => (
   status.match({
@@ -52,7 +51,6 @@ const ConnectionStatus = ({status, onConnect}) => (
 )
 
 const presenter = {
-  context: { Storage },
   selectors: { getConnectionStatus },
   effects: { connect: connectHue }
 }

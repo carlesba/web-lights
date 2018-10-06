@@ -18,12 +18,10 @@ describe('Container', () => {
     const selectors = { select: jest.fn() }
     const actions = { action: jest.fn() }
     const effects = { effect: jest.fn() }
-    const context = { Storage: {} }
     const Foo = () => <div />
     const wrapper = mount(
       <Provider initialState={state}>
         <Container
-          context={context}
           selectors={selectors}
           actions={actions}
           effects={effects}
@@ -49,7 +47,6 @@ describe('Container', () => {
     childrenProps.effect('effect')
     expect(effects.effect).toHaveBeenCalledWith(
       {
-        Storage: context.Storage,
         dispatch: expect.any(Function),
         getState: expect.any(Function)
       },

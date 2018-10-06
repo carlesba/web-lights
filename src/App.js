@@ -5,6 +5,7 @@ import Notifications from 'containers/Notifications'
 import handlers, {initialState} from 'state/handlers'
 import DashboardPage from 'containers/DashboardPage'
 import Router, {Route} from 'containers/Router'
+import Storage from 'connectors/Storage'
 
 const middleware = (state, action, nextState) => {
   console.log('::state', state)
@@ -16,6 +17,7 @@ const App = () => (
   <Provider
     initialState={initialState}
     handlers={handlers}
+    services={{Storage}}
     middleware={middleware}
   >
     <Notifications />
