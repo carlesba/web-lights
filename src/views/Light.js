@@ -21,7 +21,7 @@ const LightWrapper = styled.div`
   margin: 20px;
   padding: 10px;
   border: 1px solid ${p => p.color};
-  opacity: ${p => p.on ? 1 : 0.5};
+  opacity: ${p => p.enabled ? 1 : 0.5};
 `
 
 const LightColor = styled.div`
