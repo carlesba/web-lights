@@ -53,8 +53,8 @@ const mapStylesFromSpring = styles => ({
   top: typeof styles.top === 'number' ? `${styles.top}%` : undefined
 })
 
-export const Route = ({page, side, selected, children}) => (
-  <Transition {...mapSideToAnimation(side)} >
+export const Route = ({page, side, selected, children, initial}) => (
+  <Transition {...mapSideToAnimation(side)} initial={initial} >
     {selected && (styles =>
       <div style={mapStylesFromSpring(styles)}>
         {children}

@@ -9,8 +9,15 @@ import Title from 'views/Title'
 import Logo from 'views/Logo'
 import Wrapper from 'views/Wrapper'
 import ConnectButton from 'views/ConnectButton'
+import { lifecycle } from 'recompose'
 
-const ConnectionStatus = ({status, onConnect}) => (
+const enhance = lifecycle({
+  componentDidMount () {
+    this.props.onConnect()
+  }
+})
+
+const ConnectionStatus = enhance(({status, onConnect}) => (
   status.match({
     Connected: ({ip, username}) => (
       <Centerer>
@@ -48,7 +55,7 @@ const ConnectionStatus = ({status, onConnect}) => (
       </Centerer>
     )
   })
-)
+))
 
 const presenter = {
   selectors: { getConnectionStatus },

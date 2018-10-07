@@ -22,7 +22,7 @@ const App = () => (
   >
     <Notifications />
     <Router>
-      <Route page='connect' side='top'><ConnectPage /></Route>
+      <Route page='connect' initial={false} side='top'><ConnectPage /></Route>
       <Route page='dashboard' side='bottom'><DashboardPage /></Route>
     </Router>
   </Provider>
