@@ -12,7 +12,7 @@ const BAD_REQUEST = sendNotification('BadRequest')
 const connect = context => {
   const { dispatch } = context
   setupHue(context)
-    .chain(config => readLights(context, config))
+    .chain(() => readLights(context))
     .fork(
       problem => problem.match({
         PressButton: () => dispatch(checkHueBridge()),

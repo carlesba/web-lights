@@ -18,9 +18,10 @@ const LightWrapper = styled.div`
   display: flex;
   align-items: center;
   border-radius: 50px;
-  margin: 20px;
+  margin: 30px 20px;
   padding: 10px;
   border: 1px solid ${p => p.color};
+  box-shadow: 0px 0px 20px 5px ${p => p.color};
   opacity: ${p => p.enabled ? 1 : 0.5};
 `
 
@@ -35,12 +36,14 @@ const LightColor = styled.div`
 const LightName = styled.div`
   white-space: nowrap;
   font-size: 20px;
+  color: rgba(222,222,222, 0.85);
 `
 
-const Light = ({light}) => (
+const Light = ({light, onSwitch}) => (
   <LightWrapper
     enabled={getStatus(light)}
     color={getColor(light)}
+    onClick={onSwitch}
     >
     <LightColor color={getColor(light)} />
     <LightName>{getName(light)}</LightName>

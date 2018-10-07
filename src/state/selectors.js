@@ -23,6 +23,11 @@ export const getLights = state => Maybe.when({
   None: T
 })
 
+export const getLight = (state, lightId) => Maybe.when({
+  Some: () => path(['lights', lightId], state),
+  None: T
+})
+
 export const getConnectionStatus = state =>
   Connection.when({
     Connected: () => isConnected(state) && ({

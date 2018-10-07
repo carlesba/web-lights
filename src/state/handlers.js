@@ -1,5 +1,3 @@
-import {keys} from 'ramda'
-
 export const initialState = {
   bridgeAccessRequired: false,
   config: {},
@@ -29,6 +27,6 @@ export default {
   }),
   updateLights: (state, {lights}) => ({
     ...state,
-    lights: keys(lights).map(key => lights[key])
+    lights
   })
 }

@@ -28,12 +28,22 @@ const syncLights = fetch => config =>
     .map(([ip, username]) => `http://${ip}/api/${username}/lights`)
     .chain(url => fetch(url))
 
+const updateLightState = fetch => (config, lightId, payload) =>
+  of(config)
+    .map(props(['ip', 'username']))
+    .map(([ip, username]) => `http://${ip}/api/${username}/lights/${lightId}/state`)
+    .chain(url => fetch(url, {
+      method: 'PUT',
+      body: JSON.stringify(payload)
+    }))
+
 export const createStorage = ({remote, local}) => ({
   getLocalConfig: getLocalConfig(local),
   saveUsername: saveUsername(local),
   discoverHue: discoverHue(remote),
   postAppInHue: postAppInHue(remote),
-  syncLights: syncLights(remote)
+  syncLights: syncLights(remote),
+  updateLightState : updateLightState(remote)
 })
 
 export default createStorage({
